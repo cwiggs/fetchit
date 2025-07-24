@@ -174,8 +174,7 @@ func downloadUpdateConfigFile(urlStr string, existsAlready, initial bool, pat, u
 		return false, fmt.Errorf("unable to create request: %v", err)
 	}
 	if pat != "" {
-		req.Header.Add("Authorization", "token "+pat)
-		req.Header.Add("Accept", "application/vnd.github.v3+json")
+		req.Header.Add("Authorization", "Bearer "+pat)
 	}
 	if username != "" && password != "" {
 		req.SetBasicAuth(username, password)
